@@ -29,6 +29,8 @@ Upsamples them back to original resolution to simulate real-world LR inputs.
 
 Generates paired Low-Resolution (LR) and High-Resolution (HR) data for supervised learning.
 
+---
+
 2. Model Architecture
 Teacher Model (ResNet18-based)
 A pretrained ResNet18 is modified to output enhanced RGB images from LR input by using a custom decoder after the backbone.
@@ -36,10 +38,15 @@ A pretrained ResNet18 is modified to output enhanced RGB images from LR input by
 Student Model (Lightweight CNN)
 A much simpler CNN that mimics the output of the teacher model while being efficient.
 
+---
+
 3. Knowledge Distillation
 First, the Teacher is trained using LR-HR image pairs with MSE loss.
 
 Then, the Student learns from the teacher's predictions (not the ground truth) using distillation loss.
+
+---
+
  
 4. Evaluation Metrics
 SSIM (Structural Similarity Index): Measures structural similarity between images.
